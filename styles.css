@@ -1,0 +1,13 @@
+.canvas {
+    display: flex;
+    flex-direction: column;
+    height: 30%;
+}
+
+.row {
+    display: flex;
+}
+
+.square {
+    border: 2px solid black;
+}
