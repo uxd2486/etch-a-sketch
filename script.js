@@ -6,11 +6,17 @@ function makeCanvas(size) {
         for (let j = 0; j < size / 2; j++) {
             const square = document.createElement("div");
             square.classList.add("square");
-            square.textContent = "TEXT";
+            square.style.padding = "10px";
+            square.addEventListener("mouseover", changeColour);
             row.appendChild(square);
         }
         canvas.appendChild(row);
     }
+}
+
+function changeColour(){
+    const randomColor = Math.floor(Math.random()*16777215).toString(16);
+    this.style.backgroundColor = "#" + randomColor;
 }
 
 DEFAULT_SIZE = 16;
