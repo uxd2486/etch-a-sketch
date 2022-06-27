@@ -1,13 +1,16 @@
 .canvas {
     display: flex;
     flex-direction: column;
-    height: 30%;
+    height: 300px;
+    width: 300px;
 }
 
 .row {
     display: flex;
+    flex: auto;
 }
 
 .square {
+    flex: auto;
     border: 2px solid black;
 }

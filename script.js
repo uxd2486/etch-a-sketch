@@ -6,7 +6,6 @@ function makeCanvas(size) {
         for (let j = 0; j < size / 2; j++) {
             const square = document.createElement("div");
             square.classList.add("square");
-            square.style.padding = "10px";
             square.addEventListener("mouseover", changeColour);
             row.appendChild(square);
         }
