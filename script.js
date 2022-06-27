@@ -28,5 +28,16 @@ function changeCanvasSize(){
     makeCanvas(size);
 }
 
+function clearCanvas() {
+    const rows = document.querySelector(".canvas").children;
+    for (let i = 0; i < rows.length; i++) {
+        let row = rows.item(i);
+        for (let j = 0; j < row.children.length; j++) {
+            let square = row.children.item(j);
+            square.style.backgroundColor = "";
+        }
+    }
+}
+
 DEFAULT_SIZE = 16;
 makeCanvas(DEFAULT_SIZE);
