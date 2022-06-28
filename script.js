@@ -59,7 +59,7 @@ function clearCanvas() {
         let row = rows.item(i);
         for (let j = 0; j < row.children.length; j++) {
             let square = row.children.item(j);
-            square.style.backgroundColor = "";
+            square.style.backgroundColor = "rgb(255, 255, 255)";
         }
     }
 }
@@ -68,8 +68,8 @@ function randomColourMode() {
     DEFAULT = false;
     if (!RANDOM_COLOR_MODE){
         RANDOM_COLOR_MODE = true;
-        clearCanvas();
     }
+    clearCanvas();
 }
 
 function defaultMode() {
@@ -81,8 +81,8 @@ function darkenMode() {
     DEFAULT = false;
     if (RANDOM_COLOR_MODE){
         RANDOM_COLOR_MODE = false;
-        clearCanvas();
     }
+    clearCanvas();
 }
 
 DEFAULT = true;
