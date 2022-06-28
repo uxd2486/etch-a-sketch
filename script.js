@@ -13,9 +13,31 @@ function makeCanvas(size) {
     }
 }
 
+function darken(colour) {
+    let matches = colour.match(/\d+/g);
+    let r_num = parseInt(matches[0], 10);
+    let g_num = parseInt(matches[1], 10);
+    let b_num = parseInt(matches[2], 10);
+    if (r_num <= 25 && g_num <= 25 && b_num <= 25) {
+        return "rgb(0, 0, 0)";
+    }
+    r_num = Math.round(r_num - 25);
+    g_num = Math.round(g_num - 25);
+    b_num = Math.round(b_num - 25);
+    return `rgb(${r_num}, ${g_num}, ${b_num})`;
+}
+
 function changeColour(){
-    const randomColor = Math.floor(Math.random()*16777215).toString(16);
-    this.style.backgroundColor = "#" + randomColor;
+    if (RANDOM_COLOR_MODE){
+        const randomColor = Math.floor(Math.random()*16777215).toString(16);
+        this.style.backgroundColor = "#" + randomColor;
+    } else {
+        let colour = this.style.backgroundColor;
+        if (colour === ""){
+            colour = "rgb(255, 255, 255)";
+        }
+        this.style.backgroundColor = darken(colour);
+    }
 }
 
 function changeCanvasSize(){
@@ -39,5 +61,6 @@ function clearCanvas() {
     }
 }
 
+RANDOM_COLOR_MODE = false;
 DEFAULT_SIZE = 16;
 makeCanvas(DEFAULT_SIZE);
