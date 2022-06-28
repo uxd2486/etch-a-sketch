@@ -28,6 +28,9 @@ function darken(colour) {
 }
 
 function changeColour(){
+    if (DEFAULT){
+        this.style.backgroundColor = "rgb(0,0,0)";
+    }
     if (RANDOM_COLOR_MODE){
         const randomColor = Math.floor(Math.random()*16777215).toString(16);
         this.style.backgroundColor = "#" + randomColor;
@@ -62,19 +65,27 @@ function clearCanvas() {
 }
 
 function randomColourMode() {
+    DEFAULT = false;
     if (!RANDOM_COLOR_MODE){
         RANDOM_COLOR_MODE = true;
         clearCanvas();
     }
 }
 
+function defaultMode() {
+    DEFAULT = true;
+    clearCanvas();
+}
+
 function darkenMode() {
+    DEFAULT = false;
     if (RANDOM_COLOR_MODE){
         RANDOM_COLOR_MODE = false;
         clearCanvas();
     }
 }
 
+DEFAULT = true;
 RANDOM_COLOR_MODE = false;
 DEFAULT_SIZE = 16;
 makeCanvas(DEFAULT_SIZE);
