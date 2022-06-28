@@ -61,6 +61,20 @@ function clearCanvas() {
     }
 }
 
+function randomColourMode() {
+    if (!RANDOM_COLOR_MODE){
+        RANDOM_COLOR_MODE = true;
+        clearCanvas();
+    }
+}
+
+function darkenMode() {
+    if (RANDOM_COLOR_MODE){
+        RANDOM_COLOR_MODE = false;
+        clearCanvas();
+    }
+}
+
 RANDOM_COLOR_MODE = false;
 DEFAULT_SIZE = 16;
 makeCanvas(DEFAULT_SIZE);
